@@ -1,0 +1,68 @@
+﻿<div ng-init="loadEdit();">
+    <h2>Edit Flight</h2>
+    <form>
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Gate</label>
+                <select id="gate" name="gate" 
+                        ng-model="selectedGateId">
+                    <option ng-repeat="gate in gates" value="{{gate.Id}}">{{gate.code}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Code</label>
+                <input type="text" id="code" name="code" ng-model="selectedFlight.code" required />
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Status</label>
+                <select id="status" name="status" ng-model="selectedFlight.status" required>
+                    <option value="">Select status</option>
+                    <option value="Active">Active</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Arrival</label>
+                <div class="input-group"
+                     moment-picker="selectedFlight.arrival"
+                     format="DD/MM/YYYY HH:mm a">
+                    <span class="input-group-addon">
+                        <i class="octicon octicon-calendar"></i>
+                    </span>
+                    <input type="text" id="arrival" name="arrival" required
+                           class="form-control"
+                           placeholder="Select date/time"
+                           ng-model="selectedFlight.arrival"
+                           ng-model-options="{ updateOn: 'blur' }" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Departure</label>
+                <div class="input-group"
+                     moment-picker="selectedFlight.departure"
+                     format="DD/MM/YYYY HH:mm a">
+                    <span class="input-group-addon">
+                        <i class="octicon octicon-calendar"></i>
+                    </span>
+                    <input type="text" id="departure" name="departure" required
+                           class="form-control"
+                           placeholder="Select date/time"
+                           ng-model="selectedFlight.departure"
+                           ng-model-options="{ updateOn: 'blur' }" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 form-control-label">Push Overlap Flights Forward</label>
+                <input type="checkbox" id="push-overlap-flights" name="push-overlap-flights" ng-model="pushOverlapForward" />
+            </div>
+            <div class="form-group">
+                <input type="button" value="Cancel" ng-click="goBack();" class="btn btn-primary" />
+                <input type="submit" value="Submit" ng-click="updateFlight(selectedFlight);" class="btn btn-primary" />
+            </div>
+            <div class="form-group">
+                <span id="error" name="error" class="warning">{{errorMessage}}</span>
+            </div>
+        </fieldset>
+    </form>
+
+</div>

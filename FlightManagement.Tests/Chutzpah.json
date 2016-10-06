@@ -1,0 +1,29 @@
+﻿{
+  "Framework": "jasmine",
+  "RootReferencePathMode": "SettingsFileDirectory",
+  "References": [
+    { "Path": "../FlightManagement/Scripts/angular.js" },
+    { "Path": "../FlightManagement/scripts/angular-resource.js" },
+    { "Path": "../FlightManagement/Scripts/angular-route.js" },
+    { "Path": "../FlightManagement/Scripts/angular-mocks.js" },
+	{ "Path": "../FlightManagement/Scripts/moment-with-locales.js" },
+	{ "Path": "../FlightManagement/Scripts/angular-moment-picker.min.js" },
+    { "Path": "scripts/jasmine.js" },
+    { "Path": "../FlightManagement/app/app.js" },
+    {
+      "Path": "../FlightManagement/app/Services",
+      "Include": "*.js"
+    },
+    {
+      "Path": "../FlightManagement/app/Controllers",
+      "Include": "*.js"
+    }
+  ],
+  "Tests": [
+    {
+      "Path": "Controllers/frontend",
+      "Include": "*.js" 
+    }
+
+  ]
+}
